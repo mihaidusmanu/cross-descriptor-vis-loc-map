@@ -16,7 +16,7 @@ M. Dusmanu, O. Miksik, J.L. Schönberger, and M. Pollefeys. ICCV 2021.
 
 We use COLMAP for DoG keypoint extraction as well as localization and mapping.
 Please follow the installation instructions available on the [official webpage](https://colmap.github.io).
-Before proceeding, we recommend setting an environmental variable to the colmap executable folder by running `export COLMAP_PATH=path_to_colmap_executable_folder`.
+Before proceeding, we recommend setting an environmental variable to the COLMAP executable folder by running `export COLMAP_PATH=path_to_colmap_executable_folder`.
 
 ### Python
 
@@ -64,7 +64,7 @@ python train.py --dataset_path data/train/colmap --features brief sift-kornia ha
 ### Pretrained models
 
 We provide two pretrained models trained on descriptors extracted from COLMAP SIFT and OpenCV SIFT keypoints, respectively.
-These models can be downloaded by running
+These models can be downloaded by running:
 ```
 bash scripts/download_checkpoints.sh
 ```
@@ -83,7 +83,7 @@ bash scripts/download_checkpoints.sh
 
 If you use this code in your project, please cite the following paper:
 ```
-@InProceedings{Dusmanu2020Cross,
+@InProceedings{Dusmanu2021Cross,
     author = {Dusmanu, Mihai and Miksik, Ondrej and Sch\"onberger, Johannes L. and Pollefeys, Marc},
     title = {{Cross Descriptor Visual Localization and Mapping}},
     booktitle = {Proceedings of the International Conference on Computer Vision},
