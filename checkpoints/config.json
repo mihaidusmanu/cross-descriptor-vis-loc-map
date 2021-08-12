@@ -1,0 +1,30 @@
+{
+    "use_bn": true,
+    "emb_dim": 128,
+    "emb_l2_norm": true,
+    "emb_last_activation": null,
+    "brief": {
+        "descriptor_dim": 512,
+        "hidden_dims": [1024, 1024],
+        "l2_norm": false,
+        "last_activation": "sigmoid"
+    },
+    "sift-kornia": {
+        "descriptor_dim": 128,
+        "hidden_dims": [1024, 1024],
+        "l2_norm": true,
+        "last_activation": "relu"
+    },
+    "hardnet": {
+        "descriptor_dim": 128,
+        "hidden_dims": [256, 256],
+        "l2_norm": true,
+        "last_activation": null
+    },
+    "sosnet": {
+        "descriptor_dim": 128,
+        "hidden_dims": [256, 256],
+        "l2_norm": true,
+        "last_activation": null
+    }
+}
