@@ -58,7 +58,9 @@ bash scripts/download_processed_training_data.sh
 
 To run training with the default architecture and hyper-parameters, execute the following:
 ```
-python train.py --dataset_path data/train/colmap --features brief sift-kornia hardnet sosnet
+python train.py \
+    --dataset_path data/train/colmap \
+    --features brief sift-kornia hardnet sosnet
 ```
 
 ### Pretrained models
@@ -75,6 +77,63 @@ bash scripts/download_checkpoints.sh
 ### Demo Notebook
 
 ### Local Feature Evaluation Benchmark
+
+First step is extracting descriptors on all datasets:
+```
+bash scripts/process_LFE_data.sh
+```
+
+We provide examples below for running reconstruction on Madrid Metrpolis in each different evaluation scenario.
+
+#### Reconstruction using a single descriptor (standard)
+
+```
+python local-feature-evaluation/reconstruction_pipeline_progressive.py \
+    --dataset_path data/eval/LFE-release/Madrid_Metropolis \
+    --colmap_path $COLMAP_PATH \
+    --features sift-kornia \
+    --exp_name sift-kornia-single
+```
+
+#### Reconstruction using the progressive approach (ours)
+
+```
+python local-feature-evaluation/reconstruction_pipeline_progressive.py \
+    --dataset_path data/eval/LFE-release/Madrid_Metropolis \
+    --colmap_path $COLMAP_PATH \
+    --features brief sift-kornia hardnet sosnet \
+    --exp_name progressive
+```
+
+#### Reconstruction using the joint embedding approach (ours)
+
+```
+python local-feature-evaluation/reconstruction_pipeline_embed.py \
+    --dataset_path data/eval/LFE-release/Madrid_Metropolis \
+    --colmap_path $COLMAP_PATH \
+    --features brief sift-kornia hardnet sosnet \
+    --exp_name embed
+```
+
+#### Reconstruction using a single descriptor on the associated split (real-world)
+
+```
+python local-feature-evaluation/reconstruction_pipeline_subset.py \
+    --dataset_path data/eval/LFE-release/Madrid_Metropolis/ \
+    --colmap_path $COLMAP_PATH \
+    --features brief sift-kornia hardnet sosnet \
+    --feature sift-kornia \
+    --exp_name sift-kornia-subset
+```
+
+#### Evaluation of a reconstruction w.r.t. metric pseudo-ground-truth
+
+```
+python local-feature-evaluation/align_and_compare.py \
+    --colmap_path $COLMAP_PATH \
+    --reference_model_path data/eval/LFE-release/Madrid_Metropolis/sparse-reference/filtered-metric/ \
+    --model_path data/eval/LFE-release/Madrid_Metropolis/sparse-sift-kornia-single/0/
+```
 
 ### Aachen Day-Night
 
