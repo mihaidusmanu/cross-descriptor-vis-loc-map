@@ -76,7 +76,15 @@ bash scripts/download_checkpoints.sh
 
 ### Demo Notebook
 
+<details>
+<summary>Click for details...</summary>
+
+</details>
+
 ### Local Feature Evaluation Benchmark
+
+<details>
+<summary>Click for details...</summary>
 
 First step is extracting descriptors on all datasets:
 ```
@@ -135,8 +143,14 @@ python local-feature-evaluation/align_and_compare.py \
     --model_path data/eval/LFE-release/Madrid_Metropolis/sparse-sift-kornia-single/0/
 ```
 
+</details>
+
 ### Aachen Day-Night
 
+<details>
+<summary>Click for details...</summary>
+
+</details>
 
 ## BibTeX
 
