@@ -47,7 +47,7 @@ bash scripts/download_evaluation_data.sh
 
 First step is extracting keypoints and descriptors on the training data downloaded above.
 ```
-bash scripts/preprocess_training_data.sh
+bash scripts/process_training_data.sh
 ```
 Alternatively, you can directly download the processed training data by running:
 ```
